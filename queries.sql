@@ -1,0 +1,15 @@
+SELECT Nazev FROM Napoje LEFT JOIN Sklad ON Napoje.Sklad_idSklad=Sklad.idSklad GROUP BY Počet HAVING (Počet) < 40;
+SELECT SUM(Počet) AS počet_produktu_na_skladě FROM Sklad;
+SELECT Jmeno, Přijmeni FROM Zakaznici RIGHT JOIN Objednavky ON Zakaznici.idZakaznici=Objednavky.Zakaznici_idZakaznici WHERE Kupon_idKupon IS NULL;
+SELECT Nazev FROM Dezerty JOIN Sklad ON Dezerty.Sklad_idSklad=Sklad.idSklad WHERE Počet > 40;
+SELECT Nazev FROM Občerstvení JOIN Sklad ON Občerstvení.Sklad_idSklad=Sklad.idSklad WHERE Počet = 40;
+SELECT idSklad FROM Sklad JOIN Dezerty ON Sklad.idSklad=Dezerty.Sklad_idSklad WHERE Alergeny IS NOT NULL;
+SELECT idSklad FROM Sklad JOIN Napoje ON Sklad.idSklad=Napoje.Sklad_idSklad WHERE Alergeny IS NULL;
+SELECT idSklad FROM Sklad JOIN Občerstvení ON Sklad.idSklad=Občerstvení.Sklad_idSklad WHERE Alergeny IS NULL;
+SELECT idSklad FROM Sklad JOIN Dezerty ON Sklad.idSklad=Dezerty.Sklad_idSklad WHERE Alergeny IS NULL;
+SELECT idObjednavky FROM Objednavky WHERE Typ_platby = 'kartou';
+SELECT Jmeno, Přijmeni FROM Zakaznici WHERE Jmeno = 'Bohdan';
+SELECT idKupon FROM Kupon WHERE Byl_použit = '1';
+SELECT Nazev, Alergeny FROM Dezerty WHERE Alergeny IS NOT NULL;
+SELECT Nazev, Alergeny FROM Napoje WHERE Alergeny IS NOT NULL;
+SELECT Nazev, Alergeny FROM Občerstvení WHERE Alergeny IS NOT NULL;
